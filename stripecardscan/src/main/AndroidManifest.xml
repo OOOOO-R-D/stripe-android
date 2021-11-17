@@ -12,7 +12,7 @@
 
     <application>
         <activity
-            android:name="com.stripe.android.stripecardscan.cardimageverification.CardVerifyActivity"
+            android:name=".cardimageverification.CardVerifyActivity"
             android:screenOrientation="nosensor"
             android:theme="@style/stripeDefaultTheme" />
     </application>
