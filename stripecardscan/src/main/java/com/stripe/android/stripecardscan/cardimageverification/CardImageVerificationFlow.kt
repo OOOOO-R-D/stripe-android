@@ -178,6 +178,7 @@ internal class CardVerifyFlow(
         val pan = getFrames(SavedFrameType(hasCard = false, hasOcr = true))
         val card = getFrames(SavedFrameType(hasCard = true, hasOcr = false))
 
-        return (cardAndPan + pan + card).take(CardImageVerificationConfig.MAX_COMPLETION_LOOP_FRAMES)
+        return (cardAndPan + pan + card)
+            .take(CardImageVerificationConfig.MAX_COMPLETION_LOOP_FRAMES)
     }
 }

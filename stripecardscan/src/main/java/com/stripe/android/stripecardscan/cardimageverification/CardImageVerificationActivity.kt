@@ -105,7 +105,8 @@ open class CardVerifyActivity : SimpleScanActivity<RequiredCardDetails?>() {
     protected open val processingTextView by lazy { TextView(this) }
 
     private val params: CardImageVerificationSheetParams by lazy {
-        intent.getParcelableExtra(INTENT_PARAM_REQUEST) ?: CardImageVerificationSheetParams("", "", "")
+        intent.getParcelableExtra(INTENT_PARAM_REQUEST)
+            ?: CardImageVerificationSheetParams("", "", "")
     }
 
     /**

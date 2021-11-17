@@ -75,8 +75,10 @@ internal sealed class MainLoopState(
         private var lastCardVisible = Clock.markNow()
 
         private fun highestOcrCount() = panCounter.getHighestCountItem().first
-        private fun isCardSatisfied() = visibleCardCount >= CardImageVerificationConfig.DESIRED_CARD_COUNT
-        private fun isOcrSatisfied() = highestOcrCount() >= CardImageVerificationConfig.DESIRED_OCR_AGREEMENT
+        private fun isCardSatisfied() =
+            visibleCardCount >= CardImageVerificationConfig.DESIRED_CARD_COUNT
+        private fun isOcrSatisfied() =
+            highestOcrCount() >= CardImageVerificationConfig.DESIRED_OCR_AGREEMENT
         private fun isTimedOut() =
             reachedStateAt.elapsedSince() > CardImageVerificationConfig.OCR_AND_CARD_SEARCH_DURATION
         private fun isNoCardVisible() =
@@ -139,7 +141,8 @@ internal sealed class MainLoopState(
         val pan: String,
         private var visibleCardCount: Int,
     ) : MainLoopState(runOcr = false, runCardDetect = true) {
-        private fun isCardSatisfied() = visibleCardCount >= CardImageVerificationConfig.DESIRED_CARD_COUNT
+        private fun isCardSatisfied() =
+            visibleCardCount >= CardImageVerificationConfig.DESIRED_CARD_COUNT
         private fun isTimedOut() =
             reachedStateAt.elapsedSince() > CardImageVerificationConfig.CARD_ONLY_SEARCH_DURATION
 
@@ -169,7 +172,8 @@ internal sealed class MainLoopState(
             get() = panCounter.getHighestCountItem().second
 
         private fun highestOcrCount() = panCounter.getHighestCountItem().first
-        private fun isOcrSatisfied() = highestOcrCount() >= CardImageVerificationConfig.DESIRED_OCR_AGREEMENT
+        private fun isOcrSatisfied() =
+            highestOcrCount() >= CardImageVerificationConfig.DESIRED_OCR_AGREEMENT
         private fun isTimedOut() =
             reachedStateAt.elapsedSince() > CardImageVerificationConfig.OCR_ONLY_SEARCH_DURATION
         private fun isNoCardVisible() =
